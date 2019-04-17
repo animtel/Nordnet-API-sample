@@ -29,3 +29,21 @@ pip install pycrypto
 ```
 
 All info about solution this bug, i give from this issue https://github.com/dlitz/pycrypto/issues/218#issuecomment-437498355
+
+
+## Also about bugs
+
+You can see some bug with ModuleNotFoundError: No module named 'winrandom'
+
+1) For solve it, need to go to
+```
+C:\Program Files (x86)\Python37-32\Lib\site-packages\Crypto\Random\OSRNG
+```
+Or same path and change
+```
+import winrandom
+```
+to
+```
+from . import winrandom
+```
