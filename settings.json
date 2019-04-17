@@ -1,0 +1,11 @@
+{
+  "credentials": {
+    "user": "Antsybor",
+    "password": "EkTCuSJzN4hHZINEXnsu"
+  },
+  "nordnet": {
+    "service": "NEXTAPI",
+    "url": "api.test.nordnet.se",
+    "api_version": "2"
+  }
+}
