@@ -56,4 +56,9 @@ https://api.test.nordnet.se/api-docs/index.html - info about endpoints of API
 
 https://api.test.nordnet.se/ - nordnet wiki
 
-
+# Keywords
+* Python 3.7
+* Nordnet
+* Nordnet-API
+* Crypto.Cipher import PKCS1_v1_5
+* Crypto.PublicKey
