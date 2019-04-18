@@ -49,8 +49,11 @@ from . import winrandom
 ```
 
 ## Links with information about NordetAPI
+
 https://api.test.nordnet.se/next/2/api-docs/docs/feeds - info about socket subscriptions with api
+
 https://api.test.nordnet.se/api-docs/index.html - info about endpoints of API
+
 https://api.test.nordnet.se/ - nordnet wiki
 
 
