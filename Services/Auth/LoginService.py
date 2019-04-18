@@ -1,3 +1,4 @@
+import base64
 import http
 from urllib.parse import urlencode
 
@@ -28,5 +29,6 @@ def login_user():
     public_feed_hostname = j["public_feed"]["hostname"]
     public_feed_port = j["public_feed"]["port"]
     our_session_key = j["session_key"]
+
     login_info = LoginInfoModel(public_feed_hostname, public_feed_port, our_session_key)
     return login_info
