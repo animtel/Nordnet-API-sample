@@ -1,33 +1,34 @@
-from flask import Flask, request, jsonify
-from flask_restful import Resource, Api
-from sqlalchemy import create_engine
+import logging
 
-from Controllers.Base.BaseController import BaseController
+from flask import Flask
+
+from Controllers.EmployeesController import employees_cotroller
+from Controllers.UserController import user_cotroller
+
+HOST = 'localhost'
+PORT = '5002'
 
 
 class Startup:
     def __init__(self):
-        self.__db_connect = create_engine('sqlite:///chinook.db')
         self.__app = Flask(__name__)
         self.__app.config["DEBUG"] = True
-        self.__api = Api(self.__app)
+        logging.basicConfig(filename='logs.log', level=logging.DEBUG)
 
     def app_init(self):
-        self.__app.run(port='5002')
-
-    @property
-    def db(self):
-        return self.__db_connect
+        self.__app.run(HOST, PORT)
 
     @property
     def app(self):
         return self.__app
 
-
 app_start = Startup()
-db_connect = app_start.db
 app = app_start.app
+logging.info('App Started')
 
-bsController = BaseController(db_connect, app)
+# cotroller registration:
+app.register_blueprint(employees_cotroller, url_prefix='/employees')
+app.register_blueprint(user_cotroller, url_prefix='/user')
 
+# app start:
 app_start.app_init()
