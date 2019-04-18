@@ -2,7 +2,6 @@ import logging
 
 from flask import Flask
 
-from Controllers.EmployeesController import employees_cotroller
 from Controllers.UserController import user_cotroller
 
 HOST = 'localhost'
@@ -24,10 +23,8 @@ class Startup:
 
 app_start = Startup()
 app = app_start.app
-logging.info('App Started')
 
 # cotroller registration:
-app.register_blueprint(employees_cotroller, url_prefix='/employees')
 app.register_blueprint(user_cotroller, url_prefix='/user')
 
 # app start:
