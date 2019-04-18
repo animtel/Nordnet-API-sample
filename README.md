@@ -12,7 +12,7 @@ python startup.py
 
 ### Can be some troubles
 
-When you will be installing packages, you can see some exception with pycrypto lib, for fix it, need to go throw the steps
+When you will be installing packages, you can see some exception with pycrypto lib, for fix it, need to go by steps
 
 1) Go to the path, sometimes path in different machines is different, but it will be same with it
 `C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build`
@@ -47,3 +47,13 @@ to
 ```
 from . import winrandom
 ```
+
+## Links with information about NordetAPI
+
+https://api.test.nordnet.se/next/2/api-docs/docs/feeds - info about socket subscriptions with api
+
+https://api.test.nordnet.se/api-docs/index.html - info about endpoints of API
+
+https://api.test.nordnet.se/ - nordnet wiki
+
+
