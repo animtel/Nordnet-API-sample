@@ -30,6 +30,19 @@ pip install pycrypto
 
 All info about solution this bug, i give from this issue https://github.com/dlitz/pycrypto/issues/218#issuecomment-437498355
 
+OR
+
+The Crypto package has known troubles when running on python 3.5 when it comes to finding the right internal modules.
+If the pycrypto is installed using pip the package Crypto can on some occasions yield an error like "missing package" or
+similar.
+```
+ImportError: No module named Crypto.Cipher'
+```
+In order to solve this problem simply re-install the package with easy_install
+```
+pip uninstall pycrypto
+easy_install pycrypto
+```
 
 ## Also about bugs
 
