@@ -1,5 +1,16 @@
 ### Prerequisites
 
+First of all you need to download and install python 3.5 or older version
+
+https://www.python.org/downloads/
+
+And update your pip
+```
+python -m pip install --upgrade pip
+```
+
+After - reboot your computer and go to the next steps
+
 What things you need to install the software and how to install them
 
 1) clone the git https://github.com/animtel/TutAPI.git
