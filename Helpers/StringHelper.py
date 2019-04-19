@@ -14,6 +14,8 @@ def try_parse_into_json(string):
             json_data = json.loads(json_strings[i])
             logging.info(">> JSON udpates from public feed")
             logging.info(json.dumps(json_data, indent=4, sort_keys=True))
+            print(">> JSON udpates from public feed")
+            print(json.dumps(json_data, indent=4, sort_keys=True))
         except:
             ## If this part cannot be parsed into JSON, It's probably not
             ## complete. Stop it right here. Merge the rest of list and

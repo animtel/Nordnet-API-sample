@@ -6,7 +6,7 @@ from Services.Socket.SocketService import connect_to_feed, receive_message_from_
 SERVICE = settings['nordnet']['service']
 
 
-def start_listen():
+def start_listening():
     login_info = login_user()
 
     # Store NEXT API login response data
@@ -24,3 +24,15 @@ def start_listen():
     # Subscribe to ERIC B price in public feed
     cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
     send_cmd_to_socket(feed_socket, cmd)
+
+    cmd = {"cmd": "subscribe", "args": {"t": "depth", "m": 11, "i": "101"}}
+    send_cmd_to_socket(feed_socket, cmd)
+
+    cmd = {"cmd": "subscribe", "args": {"t": "trade", "m": 11, "i": "101"}}
+    send_cmd_to_socket(feed_socket, cmd)
+
+    # cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
+    # send_cmd_to_socket(feed_socket, cmd)
+    #
+    # cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
+    # send_cmd_to_socket(feed_socket, cmd)
