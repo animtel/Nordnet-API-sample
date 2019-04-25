@@ -4,6 +4,7 @@ import socket
 import ssl
 import time
 
+from Helpers.MappingHelper import to_dynamic
 from Helpers.StringHelper import try_parse_into_json
 
 
@@ -26,7 +27,7 @@ def connect_to_feed(public_feed_hostname, public_feed_port):
     return s
 
 
-def do_receive_from_socket(socket, last_buffer):
+def do_receive_from_socket(socket, importdb_func, last_buffer):
     """
     Receive data from the socket, and try to parse it into JSON. Return
     the unparsable parts as buffer
@@ -37,19 +38,19 @@ def do_receive_from_socket(socket, last_buffer):
     # > the buffer until a full message has been transferred
     time.sleep(0.01)
     new_data = socket.recv(1024).decode('utf-8')
+    importdb_func(new_data)
+    # string = last_buffer + new_data
+    # if string != '':
+    #     new_buffer = try_parse_into_json(string)
+    #     return new_buffer
+    #
+    # return ''
 
-    string = last_buffer + new_data
-    if string != '':
-        new_buffer = try_parse_into_json(string)
-        return new_buffer
 
-    return ''
-
-
-def receive_message_from_socket(socket):
+def receive_message_from_socket(socket, importdb_func):
     """
     Receive data from the socket and parse it
     """
     buffer = ''
     while True:
-        buffer = do_receive_from_socket(socket, buffer)
+        buffer = do_receive_from_socket(socket, importdb_func, buffer)
