@@ -1,6 +1,8 @@
 import json
 import logging
 
+from Helpers.MappingHelper import to_dynamic
+
 
 def try_parse_into_json(string):
     """

@@ -6,7 +6,7 @@ from Services.Socket.SocketService import connect_to_feed, receive_message_from_
 SERVICE = settings['nordnet']['service']
 
 
-def start_listening():
+def start_listening(importdb_func):
     login_info = login_user()
 
     # Store NEXT API login response data
@@ -15,7 +15,7 @@ def start_listening():
     our_session_key = login_info.session_key
 
     feed_socket = connect_to_feed(public_feed_hostname, public_feed_port)
-    threading_start(receive_message_from_socket, (feed_socket,))
+    threading_start(receive_message_from_socket, (feed_socket, importdb_func,))
 
     # Login to public feed with our session_key from NEXT API response
     cmd = {"cmd": "login", "args": {"session_key": our_session_key, "service": SERVICE}}
@@ -25,11 +25,11 @@ def start_listening():
     cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
     send_cmd_to_socket(feed_socket, cmd)
 
-    cmd = {"cmd": "subscribe", "args": {"t": "depth", "m": 11, "i": "101"}}
-    send_cmd_to_socket(feed_socket, cmd)
-
-    cmd = {"cmd": "subscribe", "args": {"t": "trade", "m": 11, "i": "101"}}
-    send_cmd_to_socket(feed_socket, cmd)
+    # cmd = {"cmd": "subscribe", "args": {"t": "depth", "m": 11, "i": "101"}}
+    # send_cmd_to_socket(feed_socket, cmd)
+    #
+    # cmd = {"cmd": "subscribe", "args": {"t": "trade", "m": 11, "i": "101"}}
+    # send_cmd_to_socket(feed_socket, cmd)
 
     # cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
     # send_cmd_to_socket(feed_socket, cmd)
