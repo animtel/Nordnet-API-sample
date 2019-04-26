@@ -3,6 +3,7 @@ from flask import Blueprint
 from Controllers.Base.BaseController import http_response
 from Helpers.HttpHelper import send_auth_http
 from Helpers.ThreadHelper import threading_start
+from Repositories.PriceRepository import import_from_socket
 from Services.Auth.LoginService import login_user
 from Services.Auth.SubscribeService import start_listening
 
@@ -18,5 +19,5 @@ def get_accaounts():
 
 @user_cotroller.route('/startListen', methods=['GET'])
 def start_listen():
-    threading_start(start_listening, None)
+    threading_start(start_listening, (import_from_socket,))
     return 'Listening started...'

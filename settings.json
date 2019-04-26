@@ -3,7 +3,7 @@
     "host": "localhost",
     "user": "animtel",
     "password": "w2e3r4T5",
-    "database": "menagerie",
+    "database": "TutAPI",
     "charset": "utf8mb4"
   },
   "hash_key_path": "Services/Auth/NEXTAPI_TEST_public.pem",
