@@ -1,18 +1,18 @@
 import pymysql
 
-from Helpers.SettingsHelper import settings
+from Dbp.DbSettingsHelper import settings
 
 connection = pymysql.connect(host=settings['connectionInfo']['host'],
-                                     user=settings['connectionInfo']['user'],
-                                     password=settings['connectionInfo']['password'],
-                                     db=settings['connectionInfo']['database'],
-                                     charset=settings['connectionInfo']['charset'])
+                             user=settings['connectionInfo']['user'],
+                             password=settings['connectionInfo']['password'],
+                             db=settings['connectionInfo']['database'],
+                             charset=settings['connectionInfo']['charset'])
 
 
 def init_pricing():
     try:
         with connection.cursor() as cursor:
-            sql = """CREATE TABLE `test6` (
+            sql = """CREATE TABLE `PricingTable` (
                         `id` int(11) NOT NULL AUTO_INCREMENT,
                         `i` varchar(1024) COLLATE utf8_bin NOT NULL,
                         `m` bigint NOT NULL,
@@ -42,4 +42,3 @@ def init_pricing():
         connection.commit()
     finally:
         connection.close()
-

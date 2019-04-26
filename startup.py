@@ -1,9 +1,6 @@
-import pymysql
 from flask import Flask
 
 from Controllers.UserController import user_cotroller
-from Dbp.InitPricing import init_pricing
-from Helpers.SettingsHelper import settings
 
 HOST = 'localhost'
 PORT = '5002'
@@ -18,10 +15,10 @@ class Startup:
     def app_init(self):
         self.__app.run(HOST, PORT)
 
-
     @property
     def app(self):
         return self.__app
+
 
 app_start = Startup()
 app = app_start.app
