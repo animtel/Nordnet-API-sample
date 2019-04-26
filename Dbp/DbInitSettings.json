@@ -1,0 +1,9 @@
+{
+  "connectionInfo": {
+    "host": "localhost",
+    "user": "animtel",
+    "password": "w2e3r4T5",
+    "database": "TutAPI",
+    "charset": "utf8mb4"
+  }
+}
