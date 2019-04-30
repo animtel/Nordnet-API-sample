@@ -28,8 +28,8 @@ def init_pricing():
                         `open` decimal,
                         `tick_timestamp` bigint,
                         `trade_timestamp` bigint,
-                        `turnover` decimal,
-                        `turnover_volume` int,
+                        `turnover` bigint,
+                        `turnover_volume` decimal,
                         `vwap` decimal,
                          PRIMARY KEY (`id`)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin

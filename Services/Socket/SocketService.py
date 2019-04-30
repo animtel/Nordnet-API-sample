@@ -36,7 +36,7 @@ def do_receive_from_socket(socket, importdb_func, last_buffer):
     # > Note that a full message with all the JSON objects ends with a
     # > newline symbol "\n". As such you need to listen and read from
     # > the buffer until a full message has been transferred
-    time.sleep(0.01)
+    # time.sleep(0.01)
     new_data = socket.recv(1024).decode('utf-8')
     importdb_func(new_data)
     # string = last_buffer + new_data
