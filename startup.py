@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask
 
 from Controllers.UserController import user_cotroller
@@ -10,7 +12,7 @@ class Startup:
     def __init__(self):
         self.__app = Flask(__name__)
         self.__app.config["DEBUG"] = True
-        #logging.basicConfig(filename='logs.log', level=logging.DEBUG)
+        logging.basicConfig(filename='logs.log', level=logging.DEBUG)
 
     def app_init(self):
         self.__app.run(HOST, PORT)
