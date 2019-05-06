@@ -1,6 +1,8 @@
 import json
 import logging
 
+from flask import request
+
 from Helpers.MappingHelper import to_dynamic
 
 
@@ -26,3 +28,9 @@ def try_parse_into_json(string):
 
     ## If all JSONs are successfully parsed, we return an empty buffer
     return ''
+
+
+def get_json_from_request_data(request_data):
+    data = request.data.decode('ascii')
+    json_data = json.loads(data)
+    return json_data
