@@ -1,4 +1,3 @@
-import json
 from urllib.parse import urlencode
 
 from flask import Blueprint, request
@@ -83,7 +82,7 @@ def create_order():
     return http_response(result)
 
 
-@user_cotroller.route('/startListen', methods=['GET'])
+@user_cotroller.route('/startListenPrices', methods=['GET'])
 def start_listen():
     threading_start(start_listening, (import_price_from_socket,))
     return 'Listening started...'
