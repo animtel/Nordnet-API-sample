@@ -22,7 +22,7 @@ def start_listening(importdb_func):
     send_cmd_to_socket(feed_socket, cmd)
 
     # Subscribe to ERIC B price in public feed
-    cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
+    cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}  # TODO: to settings.json
     send_cmd_to_socket(feed_socket, cmd)
 
     # cmd = {"cmd": "subscribe", "args": {"t": "depth", "m": 11, "i": "101"}}
