@@ -1,0 +1,179 @@
+{
+  "info": {
+    "_postman_id": "acc01b77-8b1f-4e4c-b470-59fd0ec19f79",
+    "name": "Nordnet",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "http://localhost:5002/user/createOrder",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"acc_number\": \"9213144\",\r\n  \"identifier\": \"1501993\",\r\n  \"market_id\": \"30\",\r\n  \"price\": \"1\",\r\n  \"currency\": \"USD\",\r\n  \"volume\": \"1\",\r\n  \"side\": \"BUY\",\r\n  \"order_type\": \"NORMAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5002/user/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "user",
+            "accounts"
+          ]
+        },
+        "description": "NORDNET CREATE ORDER REQUEST"
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5002/user/accounts",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"acc_number\": \"9213144\",\r\n  \"identifier\": \"1501993\",\r\n  \"market_id\": \"30\",\r\n  \"price\": \"1\",\r\n  \"currency\": \"USD\",\r\n  \"volume\": \"1\",\r\n  \"side\": \"BUY\",\r\n  \"order_type\": \"NORMAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5002/user/getorderstate/1339574",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "user",
+            "getorderstate",
+            "1339574"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5002/user/getorderstate/1339574",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"acc_number\": \"9213144\",\r\n  \"identifier\": \"1501993\",\r\n  \"market_id\": \"30\",\r\n  \"price\": \"1\",\r\n  \"currency\": \"USD\",\r\n  \"volume\": \"1\",\r\n  \"side\": \"BUY\",\r\n  \"order_type\": \"NORMAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5002/user/getorderstate/1339574",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "user",
+            "getorderstate",
+            "1339574"
+          ]
+        },
+        "description": "Method for getting order state, where \nhttp://url/user/getorderstate/<orderid>"
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5002/user/deleteoder/1339574",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"acc_number\": \"9213144\",\r\n  \"identifier\": \"1501993\",\r\n  \"market_id\": \"30\",\r\n  \"price\": \"1\",\r\n  \"currency\": \"USD\",\r\n  \"volume\": \"1\",\r\n  \"side\": \"BUY\",\r\n  \"order_type\": \"NORMAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5002/user/deleteoder/1339574",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "user",
+            "deleteoder",
+            "1339574"
+          ]
+        },
+        "description": "Method for removing order, where\nhttp://url/user/deleteoder/<orderid>"
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5002/user/orders",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"acc_number\": \"9213144\",\r\n  \"identifier\": \"1501993\",\r\n  \"market_id\": \"30\",\r\n  \"price\": \"1\",\r\n  \"currency\": \"USD\",\r\n  \"volume\": \"1\",\r\n  \"side\": \"BUY\",\r\n  \"order_type\": \"NORMAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5002/user/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "user",
+            "orders"
+          ]
+        },
+        "description": "Method for getting all of orders, where\nhttp://<url>/user/orders"
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5002/user/startListenPrices",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"acc_number\": \"9213144\",\r\n  \"identifier\": \"1501993\",\r\n  \"market_id\": \"30\",\r\n  \"price\": \"1\",\r\n  \"currency\": \"USD\",\r\n  \"volume\": \"1\",\r\n  \"side\": \"BUY\",\r\n  \"order_type\": \"NORMAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5002/user/startListenPrices",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "user",
+            "startListenPrices"
+          ]
+        },
+        "description": "Method for activate listening prices from nordnet, where\nhttp://<url>/user/startListenPrices"
+      },
+      "response": []
+    }
+  ]
+}

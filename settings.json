@@ -15,5 +15,11 @@
     "service": "NEXTAPI",
     "url": "api.test.nordnet.se",
     "api_version": "2"
-  }
+  },
+  "market_ids_identifiers": [
+    {
+      "market_id": 11,
+      "identifier": 101
+    }
+  ]
 }
