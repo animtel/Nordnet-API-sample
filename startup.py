@@ -5,10 +5,10 @@ from werkzeug.exceptions import HTTPException
 
 from Controllers.UserController import user_cotroller
 
-HOST = 'localhost'
-PORT = '5002'
+HOST = 'https://testpytutapi.azurewebsites.net'
+PORT = ''  # '5002'
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
-API_URL = 'http://localhost:5002/static/swagger.json'  # Our API url (can of course be a local resource)
+API_URL = 'http://' + HOST + ':' + PORT + '/static/swagger.json'  # Our API url (can of course be a local resource)
 
 
 class Startup:
@@ -20,7 +20,10 @@ class Startup:
     # logging.basicConfig(filename='logs.log', level=logging.DEBUG)
 
     def app_init(self):
-        self.__app.run(HOST, PORT)
+        if PORT != '':
+            self.__app.run(HOST, PORT)
+        else:
+            self.__app.run(HOST)
 
     @property
     def app(self):
@@ -42,4 +45,5 @@ app.register_blueprint(user_cotroller, url_prefix='/user')
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 # app start:
-app_start.app_init()
+if __name__ == '__main__':
+    app_start.app_init()
