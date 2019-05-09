@@ -9,10 +9,12 @@ from Helpers.SettingsHelper import settings
 
 def import_price_from_socket(json_string):
     isPricingType = to_dynamic(json_string).type != 'price'
+    print(json_string)
     if isPricingType:
         return
 
     connection = pymysql.connect(host=settings['connectionInfo']['host'],
+                                 port=int(settings['connectionInfo']['port']),
                                  user=settings['connectionInfo']['user'],
                                  password=settings['connectionInfo']['password'],
                                  db=settings['connectionInfo']['database'],
@@ -68,6 +70,7 @@ def import_price_from_socket(json_string):
 
 def get_pricing():
     connection = pymysql.connect(host=settings['connectionInfo']['host'],
+                                 port=int(settings['connectionInfo']['host']),
                                  user=settings['connectionInfo']['user'],
                                  password=settings['connectionInfo']['password'],
                                  db=settings['connectionInfo']['database'],
@@ -107,6 +110,7 @@ def get_pricing():
 
 def get_pricing_by_i_m(i, m, amount):
     connection = pymysql.connect(host=settings['connectionInfo']['host'],
+                                 port=int(settings['connectionInfo']['host']),
                                  user=settings['connectionInfo']['user'],
                                  password=settings['connectionInfo']['password'],
                                  db=settings['connectionInfo']['database'],

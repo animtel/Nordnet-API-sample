@@ -1,6 +1,7 @@
 {
   "connectionInfo": {
-    "host": "localhost",
+    "host": "database",
+    "port": "3306",
     "user": "animtel",
     "password": "w2e3r4T5",
     "database": "TutAPI",

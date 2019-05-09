@@ -4,11 +4,14 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from werkzeug.exceptions import HTTPException
 
 from Controllers.UserController import user_cotroller
+from Dbp.InitDB import initdb
 
 HOST = '0.0.0.0'
 PORT = ''
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = 'http://' + HOST + ':' + PORT + '/static/swagger.json'  # Our API url (can of course be a local resource)
+
+initdb()
 
 
 class Startup:
