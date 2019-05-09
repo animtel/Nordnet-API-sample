@@ -1,5 +1,14 @@
-### Prerequisites
+### Prerequisites for run with docker
 
+1) install docker, you can download ti from https://docs.docker.com/docker-for-windows/install/
+
+2) call the command for run container instance on your local machine:
+
+`docker run -p 5000:5000 nordnetapi.azurecr.io/tutapi:v1.0.0`
+
+3) go to `localhost:5000` and check it!
+
+### Prerequisites
 What things you need to install the software and how to install them
 
 1) clone the git https://github.com/animtel/TutAPI.git
