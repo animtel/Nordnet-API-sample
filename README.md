@@ -1,12 +1,26 @@
 ### Prerequisites for run with docker
 
-1) install docker, you can download ti from https://docs.docker.com/docker-for-windows/install/
+####Only run container from docker repo:
+
+1) install docker, you can download it from https://docs.docker.com/docker-for-windows/install/
 
 2) call the command for run container instance on your local machine:
 
 `docker run -p 5000:5000 nordnetapi.azurecr.io/tutapi:v1.0.0`
 
 3) go to `localhost:5000` and check it!
+
+#### Build image and run container:
+
+1) install docker;
+2) from root folder run command:
+`docker build -t nordnetapi .`
+3) run command: `docker run -p 5000:5000 nordnetapi`
+4) go to the `localhost:5000` and check it!
+
+##### If your port 5000 is busy, you can change:
+
+`docker run -p <your-prefer-port>:5000 nordnetapi`
 
 ### Prerequisites
 What things you need to install the software and how to install them
@@ -15,7 +29,7 @@ What things you need to install the software and how to install them
 2) go to the folder
 3) make this commands:
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 python startup.py
 ```
 
