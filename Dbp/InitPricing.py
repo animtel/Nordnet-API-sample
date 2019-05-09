@@ -1,8 +1,8 @@
 import pymysql
-
-from Dbp.DbSettingsHelper import settings
+from Helpers.SettingsHelper import settings
 
 connection = pymysql.connect(host=settings['connectionInfo']['host'],
+                             port=int(settings['connectionInfo']['port']),
                              user=settings['connectionInfo']['user'],
                              password=settings['connectionInfo']['password'],
                              db=settings['connectionInfo']['database'],
