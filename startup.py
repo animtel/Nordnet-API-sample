@@ -5,7 +5,7 @@ from werkzeug.exceptions import HTTPException
 
 from Controllers.UserController import user_cotroller
 
-HOST = 'localhost'
+HOST = '0.0.0.0'
 PORT = ''
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = 'http://' + HOST + ':' + PORT + '/static/swagger.json'  # Our API url (can of course be a local resource)

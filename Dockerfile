@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 MAINTAINER Daniel Kovalenko "animtel@gmail.com"
 
@@ -15,5 +15,7 @@ RUN pip3 install -r requirements.txt
 COPY . /
 
 ENTRYPOINT [ "python3" ]
+
+EXPOSE 5000
 
 CMD [ "startup.py" ]
