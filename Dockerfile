@@ -16,6 +16,6 @@ COPY . /
 
 ENTRYPOINT [ "python3" ]
 
-EXPOSE 5000
+EXPOSE 80
 
 CMD [ "startup.py" ]
