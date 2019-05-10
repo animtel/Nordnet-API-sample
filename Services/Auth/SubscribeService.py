@@ -21,10 +21,11 @@ def start_listening(importdb_func):
     cmd = {"cmd": "login", "args": {"session_key": our_session_key, "service": SERVICE}}
     send_cmd_to_socket(feed_socket, cmd)
 
-    for market_ids_identifier in settings["market_ids_identifiers"]:
-        cmd = {"cmd": "subscribe", "args": {"t": "price", "m": market_ids_identifier["market_id"],
-                                            "i": market_ids_identifier["identifier"]}}
-        send_cmd_to_socket(feed_socket, cmd)
+    cmd = {"cmd": "subscribe", "args": {"t": "price", "m": 11, "i": "101"}}
+    # for market_ids_identifier in settings["market_ids_identifiers"]:
+    #     cmd = {"cmd": "subscribe", "args": {"t": "price", "m": market_ids_identifier["market_id"],
+    #                                         "i": market_ids_identifier["identifier"]}}
+    send_cmd_to_socket(feed_socket, cmd)
 
     # Subscribe to ERIC B price in public feed
 

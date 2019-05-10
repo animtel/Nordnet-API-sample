@@ -26,9 +26,9 @@ services:
       MYSQL_PASSWORD: w2e3r4T5
       MYSQL_ROOT_PASSWORD: w2e3r4T5
     ports:
-      - '5005:3306'
+      - '5006:3306'
     expose:
-      - '5005'
+      - '5006'
     volumes:
       - flask-db:/var/lib/mysql
 
