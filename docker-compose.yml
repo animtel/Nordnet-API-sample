@@ -2,9 +2,9 @@ version: "3"
 services:
 
   server:
-    image: nordnetpy.azurecr.io/nordnetpy:v1
     container_name: flask
-    ports: ['80:5000']
+    build: .
+    ports: ['5000:5000']
     volumes: ['.:/usr/src/app']
     restart: always
     environment:
