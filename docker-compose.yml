@@ -3,34 +3,50 @@ services:
 
   server:
     container_name: flask
-    build: .
-    ports: ['5000:5000']
-    volumes: ['.:/usr/src/app']
-    restart: always
+    image: "animtel/nordnetapi:v1"
+    ports: ['80:80']
     environment:
       ENV: DEVELOPMENT
       DB_USERNAME: animtel
       DB_PASSWORD: w2e3r4T5
       DB_DATABASE: TutAPI
       DB_HOST: database
-    links:
+    depends_on:
       - database
 
   database:
     container_name: database
-    image: mysql:5.7
-    restart: always
+    image: "mysql:5.7"
     environment:
       MYSQL_DATABASE: TutAPI
       MYSQL_USER: animtel
       MYSQL_PASSWORD: w2e3r4T5
       MYSQL_ROOT_PASSWORD: w2e3r4T5
-    ports:
-      - '5005:3306'
-    expose:
-      - '5005'
+
+
+
+
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
     volumes:
-      - flask-db:/var/lib/mysql
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: w2e3r4T5
+      MYSQL_DATABASE: TutAPI
+      MYSQL_USER: animtel
+      MYSQL_PASSWORD: w2e3r4T5
+
+  server:
+    depends_on:
+      - db
+    image: "animtel/nordnetapi:v1"
+    ports:
+      - "80:80"
+    restart: always
 
 volumes:
-  flask-db:
+  db_data:
