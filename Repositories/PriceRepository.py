@@ -29,9 +29,11 @@ def import_price_from_socket(json_string):
         with connection.cursor() as cursor:
 
             selected_pricing = get_pricing_by_i_m(pricingModel.i, pricingModel.m, 1)
-            fullObj = to_dynamic(selected_pricing[0][0])
-
-            insertionObject = update_exist_props(fullObj, pricingModel)
+            if selected_pricing == None:
+                fullObj = to_dynamic(selected_pricing[0][0])
+                insertionObject = update_exist_props(fullObj, pricingModel)
+            else:
+                insertionObject = pricingModel
             # Create a new record
             sql = "INSERT INTO `PricingTable` (" \
                   "`i`," \
@@ -70,7 +72,7 @@ def import_price_from_socket(json_string):
 
 def get_pricing():
     connection = pymysql.connect(host=settings['connectionInfo']['host'],
-                                 port=int(settings['connectionInfo']['host']),
+                                 port=int(settings['connectionInfo']['port']),
                                  user=settings['connectionInfo']['user'],
                                  password=settings['connectionInfo']['password'],
                                  db=settings['connectionInfo']['database'],
@@ -110,7 +112,7 @@ def get_pricing():
 
 def get_pricing_by_i_m(i, m, amount):
     connection = pymysql.connect(host=settings['connectionInfo']['host'],
-                                 port=int(settings['connectionInfo']['host']),
+                                 port=int(settings['connectionInfo']['port']),
                                  user=settings['connectionInfo']['user'],
                                  password=settings['connectionInfo']['password'],
                                  db=settings['connectionInfo']['database'],
