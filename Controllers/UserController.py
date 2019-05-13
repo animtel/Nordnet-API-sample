@@ -1,3 +1,4 @@
+import os
 from urllib.parse import urlencode
 
 from flask import Blueprint, request
@@ -10,7 +11,7 @@ from Repositories.PriceRepository import import_price_from_socket
 from Services.Auth.LoginService import login_user
 from Services.Auth.SubscribeService import start_listening
 
-user_cotroller = Blueprint('user_cotroller', __name__)
+user_cotroller = Blueprint('user_cotroller', __name__, static_folder='/', url_prefix='/users')
 
 
 @user_cotroller.route('/accounts', methods=['GET'])
@@ -93,10 +94,7 @@ def get_pricing():
     from Services.Prices.PriceService import get_prices
     return http_response(list(map(lambda x: x[0], get_prices())))
 
-# @user_cotroller.route('/initdb', methods=['GET'])
-# def init_db():
-#     result = initdb()
-#     if result:
-#         return 'Db have inited successfully.'
-#     else:
-#         return 'Have errors with db init.'
+
+@user_cotroller.route('/getlogs', methods=['GET'])
+def get_logs():
+    return user_cotroller.send_static_file('logs.log')
