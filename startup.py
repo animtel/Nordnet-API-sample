@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask
 from flask_restful import Api
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -19,8 +21,7 @@ class Startup:
         self.__app = Flask(__name__)
         self.__api = Api(self.__app)
         self.__app.config["DEBUG"] = True
-
-    # logging.basicConfig(filename='logs.log', level=logging.DEBUG)
+        logging.basicConfig(filename='logs.log', level=logging.DEBUG)
 
     def app_init(self):
         if PORT != '':
