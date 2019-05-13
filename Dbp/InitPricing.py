@@ -1,16 +1,14 @@
 import pymysql
 from Helpers.SettingsHelper import settings
 
-connection = pymysql.connect(host=settings['connectionInfo']['host'],
-                             port=int(settings['connectionInfo']['port']),
-                             user=settings['connectionInfo']['user'],
-                             password=settings['connectionInfo']['password'],
-                             db=settings['connectionInfo']['database'],
-                             charset=settings['connectionInfo']['charset'])
-
-
 def init_pricing():
     try:
+        connection = pymysql.connect(host=settings['connectionInfo']['host'],
+                                     port=int(settings['connectionInfo']['port']),
+                                     user=settings['connectionInfo']['user'],
+                                     password=settings['connectionInfo']['password'],
+                                     db=settings['connectionInfo']['database'],
+                                     charset=settings['connectionInfo']['charset'])
         with connection.cursor() as cursor:
             sql = """CREATE TABLE `PricingTable` (
                         `id` int(11) NOT NULL AUTO_INCREMENT,

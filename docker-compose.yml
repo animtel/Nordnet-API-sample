@@ -1,39 +1,11 @@
-version: "3"
+version: '3.4'
 services:
-
-  server:
-    container_name: flask
-    image: "animtel/nordnetapi:v1"
-    ports: ['80:80']
-    environment:
-      ENV: DEVELOPMENT
-      DB_USERNAME: animtel
-      DB_PASSWORD: w2e3r4T5
-      DB_DATABASE: TutAPI
-      DB_HOST: database
-    depends_on:
-      - database
-
   database:
-    container_name: database
     image: "mysql:5.7"
-    environment:
-      MYSQL_DATABASE: TutAPI
-      MYSQL_USER: animtel
-      MYSQL_PASSWORD: w2e3r4T5
-      MYSQL_ROOT_PASSWORD: w2e3r4T5
-
-
-
-
-version: '3.3'
-
-services:
-  db:
-    image: mysql:5.7
+    ports:
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: w2e3r4T5
       MYSQL_DATABASE: TutAPI
@@ -42,11 +14,10 @@ services:
 
   server:
     depends_on:
-      - db
-    image: "animtel/nordnetapi:v1"
+      - database
+    image: "animtel/nordapi:v1.8"
     ports:
       - "80:80"
-    restart: always
 
 volumes:
   db_data:

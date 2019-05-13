@@ -86,3 +86,17 @@ def create_order():
 def start_listen():
     threading_start(start_listening, (import_price_from_socket,))
     return 'Listening started...'
+
+
+@user_cotroller.route('/getprices', methods=['GET'])
+def get_pricing():
+    from Services.Prices.PriceService import get_prices
+    return http_response(list(map(lambda x: x[0], get_prices())))
+
+# @user_cotroller.route('/initdb', methods=['GET'])
+# def init_db():
+#     result = initdb()
+#     if result:
+#         return 'Db have inited successfully.'
+#     else:
+#         return 'Have errors with db init.'
