@@ -9,7 +9,6 @@ from Helpers.SettingsHelper import settings
 
 def import_price_from_socket(json_string):
     isPricingType = to_dynamic(json_string).type != 'price'
-    print(json_string)
     if isPricingType:
         return
 
@@ -27,9 +26,8 @@ def import_price_from_socket(json_string):
         pricingModel = to_dynamic(json_string).data
 
         with connection.cursor() as cursor:
-
             selected_pricing = get_pricing_by_i_m(pricingModel.i, pricingModel.m, 1)
-            if selected_pricing != None:
+            if selected_pricing:
                 fullObj = to_dynamic(selected_pricing[0][0])
                 insertionObject = update_exist_props(fullObj, pricingModel)
             else:

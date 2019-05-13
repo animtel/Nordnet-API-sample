@@ -4,15 +4,15 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from werkzeug.exceptions import HTTPException
 
 from Controllers.UserController import user_cotroller
+from Dbp.InitDB import initdb
+from Helpers.SettingsHelper import settings
 
-HOST = '0.0.0.0'
-PORT = '80'
+HOST = settings["server"]["host"]
+PORT = settings["server"]["port"]
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = 'http://' + HOST + ':' + PORT + '/static/swagger.json'  # Our API url (can of course be a local resource)
 
-
-# initdb()
-
+initdb()
 
 class Startup:
     def __init__(self):
@@ -32,14 +32,9 @@ class Startup:
     def app(self):
         return self.__app
 
-    @property
-    def api(self):
-        return self.__api
-
 
 app_start = Startup()
 app = app_start.app
-api = app_start.api
 
 swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL, config={'app_name': "NordnetAPI"})
 # cotroller registration:
