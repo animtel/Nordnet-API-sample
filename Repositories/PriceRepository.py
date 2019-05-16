@@ -10,6 +10,7 @@ from Helpers.SettingsHelper import settings
 def import_price_from_socket(json_string):
     logging.info(">> Input feed")
     logging.info(json.dumps(json_string, indent=4, sort_keys=True))
+    print(json_string)
     isPricingType = to_dynamic(json_string).type != 'price'
     if isPricingType:
         return

@@ -93,8 +93,3 @@ def start_listen():
 def get_pricing():
     from Services.Prices.PriceService import get_prices
     return http_response(list(map(lambda x: x[0], get_prices())))
-
-
-@user_cotroller.route('/getlogs', methods=['GET'])
-def get_logs():
-    return user_cotroller.send_static_file('logs.log')

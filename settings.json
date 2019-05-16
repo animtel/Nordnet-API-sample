@@ -1,10 +1,10 @@
 {
   "server": {
-    "host": "localhost",
-    "port": "5000"
+    "host": "server",
+    "port": "80"
   },
   "connectionInfo": {
-    "host": "localhost",
+    "host": "database",
     "port": "3306",
     "user": "animtel",
     "password": "w2e3r4T5",
@@ -13,8 +13,8 @@
   },
   "hash_key_path": "Services/Auth/NEXTAPI_TEST_public.pem",
   "credentials": {
-    "user": "Antsybor",
-    "password": "EkTCuSJzN4hHZINEXnsu"
+    "user": "Test20192",
+    "password": "Test20192"
   },
   "nordnet": {
     "service": "NEXTAPI",
@@ -25,6 +25,22 @@
     {
       "market_id": 11,
       "identifier": 101
+    },
+    {
+      "market_id": 11,
+      "identifier": 336
+    },
+    {
+      "market_id": 11,
+      "identifier": 401
+    },
+    {
+      "market_id": 11,
+      "identifier": 402
+    },
+    {
+      "market_id": 11,
+      "identifier": 806
     }
   ]
 }
