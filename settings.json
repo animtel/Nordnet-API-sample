@@ -1,0 +1,46 @@
+{
+    "server": {
+      "host": "server",
+      "port": "80"
+    },
+    "connectionInfo": {
+      "host": "HOST",
+      "port": "PORT",
+      "user": "LOGIN",
+      "password": "PASSWORD",
+      "database": "DB NAME",
+      "charset": "utf8mb4"
+    },
+    "hash_key_path": "Services/Auth/NEXTAPI_TEST_public.pem",
+    "credentials": {
+      "user": "YOUR CREDS FROM NORDNET",
+      "password": "YOUR CREDS FROM NORDNET"
+    },
+    "nordnet": {
+      "service": "NEXTAPI",
+      "url": "api.test.nordnet.se",
+      "api_version": "2"
+    },
+    "market_ids_identifiers": [
+      {
+        "market_id": 11,
+        "identifier": 101
+      },
+      {
+        "market_id": 11,
+        "identifier": 336
+      },
+      {
+        "market_id": 11,
+        "identifier": 401
+      },
+      {
+        "market_id": 11,
+        "identifier": 402
+      },
+      {
+        "market_id": 11,
+        "identifier": 806
+      }
+    ]
+  }
