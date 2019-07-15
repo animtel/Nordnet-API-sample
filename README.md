@@ -14,8 +14,9 @@ After - reboot your computer and go to the next steps
 What things you need to install the software and how to install them
 
 1) clone the git https://github.com/animtel/TutAPI.git
-2) go to the folder
-3) make this commands:
+2) set up your's creds to the settings.json
+3) go to the folder
+4) make this commands:
 ```
 pip install -r requirements.txt
 python startup.py
